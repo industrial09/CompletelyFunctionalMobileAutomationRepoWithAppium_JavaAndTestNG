@@ -1,4 +1,4 @@
-package appiumTests.screens.viewsScreens;
+package appiumTests.screens.preferenceScreens;
 
 import appiumTests.screens.CommonMethods;
 import io.appium.java_client.AppiumDriver;
@@ -7,16 +7,18 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
-public class ViewsTextFields extends CommonMethods {
-    @AndroidFindBy(className = "android.widget.EditText")
-    private MobileElement hintText;
+import java.util.List;
 
-    public ViewsTextFields(AppiumDriver driver){
+public class PreferenceScreen extends CommonMethods {
+    @AndroidFindBy(accessibility = "1. Preferences from XML")
+    private MobileElement preferencesFromXML;
+
+    public PreferenceScreen(AppiumDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    public void enterData(String dataToEnter){
-        enterText(hintText, dataToEnter);
+    public void tapOnPreferencesFromXMLOption(){
+        tapOnElement(preferencesFromXML);
     }
 }

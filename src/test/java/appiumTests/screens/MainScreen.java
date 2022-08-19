@@ -8,8 +8,8 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
 public class MainScreen extends CommonMethods {
-    @AndroidFindBy(accessibility = "Accessibility")
-    private MobileElement access;
+    @AndroidFindBy(accessibility = "Preference")
+    private MobileElement preference;
 
     @AndroidFindBy(accessibility = "Views")
     private MobileElement views;
@@ -21,5 +21,8 @@ public class MainScreen extends CommonMethods {
 
     public void tapOnViewsOption(){
         tapOnElement(views);
+    }
+    public void tapOnPreferenceOption(){
+        tapOnElement(preference);
     }
 }

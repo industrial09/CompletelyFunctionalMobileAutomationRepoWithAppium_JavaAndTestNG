@@ -7,16 +7,16 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
-public class ViewsTextFields extends CommonMethods {
-    @AndroidFindBy(className = "android.widget.EditText")
-    private MobileElement hintText;
+public class AutoCompleteScreenTop extends CommonMethods {
+    @AndroidFindBy(id = "io.appium.android.apis:id/edit")
+    private MobileElement txtCountry;
 
-    public ViewsTextFields(AppiumDriver driver){
+    public AutoCompleteScreenTop(AppiumDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     public void enterData(String dataToEnter){
-        enterText(hintText, dataToEnter);
+        enterText(txtCountry, dataToEnter);
     }
 }
