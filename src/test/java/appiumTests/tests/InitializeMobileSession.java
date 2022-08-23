@@ -1,5 +1,6 @@
 package appiumTests.tests;
 
+import framework.base.CreateBrowserSession;
 import framework.base.Drivercontext;
 import framework.base.InitializeDriver;
 import framework.base.Utilities;
@@ -11,7 +12,7 @@ import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-public class InitializeMobileSession extends InitializeDriver {
+public class InitializeMobileSession extends CreateBrowserSession {
     ExcelUtility excelUtility;
     LogUtility logUtility;
     AppiumDriver driver;
@@ -24,6 +25,7 @@ public class InitializeMobileSession extends InitializeDriver {
         logUtility.createLogFile();
         logUtility.write("Initializing Mobile Driver");
         driver = createDriverSession("Android");
+        driver.get("https://www.tesla.com/");
         excelUtility = Utilities.getExcelData();
     }
 

@@ -1,6 +1,6 @@
 package appiumTests.tests;
 
-import appiumTests.screenFlows.ViewsScreenFlows;
+import appiumTests.screenFlows.screenNativeFlows.ViewsScreenFlows;
 import org.testng.annotations.Test;
 
 public class ViewsScreenTests extends InitializeMobileSession{

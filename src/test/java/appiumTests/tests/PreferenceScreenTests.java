@@ -1,7 +1,6 @@
 package appiumTests.tests;
 
-import appiumTests.screenFlows.PreferenceScreenFlows;
-import org.testng.Assert;
+import appiumTests.screenFlows.screenNativeFlows.PreferenceScreenFlows;
 import org.testng.annotations.Test;
 
 public class PreferenceScreenTests extends InitializeMobileSession{
