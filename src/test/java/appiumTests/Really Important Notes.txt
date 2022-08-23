@@ -1,3 +1,6 @@
+********** FOR WORKING WITH APPIUM INSPECTOR
+The one working fine along with the Appium Server is the version -> Appium-windows-1.17.1-1
+
 ******** WHILE WORKING WITH WEBVIEW ELEMENTS OF A MOBILE APP:
 We can execute this command in Chrome browser to worrk with it in a DevTools mode
 command: chrome://inspect/#devices
