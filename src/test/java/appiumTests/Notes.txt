@@ -31,3 +31,79 @@ AppiumDriver driver = CreateDriverSession.initializeDriver("Android");
         System.out.println(((AndroidDriver) driver).isDeviceLocked());
         ((AndroidDriver) driver).unlockDevice();
 
+********************************************************************************************************
+NOTES ABOUT WORKING WITH APPIUM
+********************************************************************************************************
+Important note on React Native apps
+
+Notes to add in Appium With Java Automation repo:
+React native apps can very well be automated with Appium. React native apps are Native apps and not Hybrid apps. The Sauce Lab demo app used in this course is a react native app.
+
+If you are automating a react native app and cannot find UI elements uniquely, then ask your dev to add a "testID" attribute for each UI element. This attribute is mapped to resource-id (or content-desc) in case of Android and AccessibilityIdentifier (or label) in case of iOS.
+
+Dev might be hesitant to add a "accessibilityLabel" attribute because it can create problems with accessibility reader tools.
+
+With "testID", this problem can be avoided.
+
+You can even have both "accessibilityLabel" and "testID" set if your dev agrees on this.
+
+If you get this done, you will not need XPath in most of the cases and your life will become easy. Trust me on this.
+*************************************************************
+Important note on Flutter apps
+
+Flutter is a special case. You may observe issues with Appium, if used with UiAutomator2 or XCUITest driver. The primary issue is, many UI elements are not identifiable. Many a times long XPath have to be used. This is because all the element attributes used for UI elements in the Flutter app may not be visible to Appium UiAutomator2 or XCUITest driver.
+
+Appium has got a Flutter driver that may solve this issue, but it is in experimental phase. Here's the GitHub link: https://github.com/truongsinh/appium-flutter-driver
+
+With this driver, you may be able to use the Flutter's element attributes to find the elements. Since this is still in experimental phase, you may observe issues. Please do a small POC and see if this works for you.
+
+Here're the Flutter element attributes list: https://api.flutter.dev/flutter/flutter_driver/CommonFinders-class.html
+
+Also note that Flutter has got its own driver for automating flutter apps. It's called the "Flutter driver", but it only supports Dart language which can be alien to many of us. Here's the link: https://flutter.dev/docs/cookbook/testing/integration/introduction
+
+If you prefer, you can use this driver as well for automating your app. Consult with your dev.
+
+In short, these are your options:
+
+-> Appium UiAutomator2 or XCUITest driver
+
+-> Appium Flutter driver
+
+-> Flutter's Flutter driver
+
+At this point, I do not have any recommendations on which driver to use for Flutter apps. Use whichever works for you. You will need to talk with your dev/team and decide on your course.
+
+You can also consult Appium folks here by opening a ticket: https://github.com/appium/appium/issues
+********************************************************
+Important note on OTPs (MFA)
+I can think of 4 ways to handle OTPs (MFA).
+
+Remove OTP requirement for test accounts/test environments
+
+Allow static OTP for test accounts/test environments.
+
+Fetch OTP from DB or using API. There could be security issue here, but team should still try to do this.
+
+Fetch OTP from the real mobile device
+
+Many folks go with option 4, mainly because they don't get required support for 1, 2 and 3. May be because they think it would be simple through the UI. But it is not!
+
+Option 4 is the worst option.
+
+Why?
+
+From the app perspective, all it need is the OTP.
+
+The app doesn't even send the OTP on it's own. It's done by the backend notification service that can be validated using the API.
+
+Now, why it's a bad idea to fetch the OTP from the device. Here're the reasons:
+
+This flow has nothing to do with your app.
+
+This flow tie your test account with your device.
+
+This is not reliable. Prone to frequent failures.
+
+Different implementation needed for iOS and Android. Even for Android, there could be variations in the flow based on the OEM.
+
+So think twice before you go with option 4.
