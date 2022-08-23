@@ -1,6 +1,7 @@
 package framework.config;
 
 import framework.base.MobileType;
+import io.appium.java_client.Setting;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,7 +17,8 @@ public class ConfigReader {
             prop.load(file);
             Settings.ExcelFileLocation = prop.getProperty("ExcelFileLocation");
             Settings.LogFileLocation = prop.getProperty("LogFileLocation");
-            Settings.mobileType = MobileType.valueOf((String) prop.get("MobileType"));
+            //Settings.mobileType = MobileType.valueOf((String) prop.get("MobileType"));
+            Settings.MobileType = prop.getProperty("MobileType");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -25,7 +25,7 @@ public class LandingPage extends CommonMethods {
     public LandingPage(AppiumDriver driver) {
         super(driver);
         this.driver = driver;
-         wait = new WebDriverWait(this.driver, 10);
+         wait = new WebDriverWait(this.driver, 30);
         PageFactory.initElements(this.driver, this);
     }
 

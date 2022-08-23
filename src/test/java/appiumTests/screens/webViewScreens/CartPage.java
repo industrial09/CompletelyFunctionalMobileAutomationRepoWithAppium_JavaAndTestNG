@@ -38,6 +38,7 @@ public class CartPage extends CommonMethods {
         Thread.sleep(2000);
         swipeNTimes(4);
         Thread.sleep(2000);
+        swipeNTimes(2);
         wait.until(ExpectedConditions.visibilityOf(proceedToPaymentBtn));
         scrollIntoElement(proceedToPaymentBtn);
         clickOnElement(proceedToPaymentBtn);

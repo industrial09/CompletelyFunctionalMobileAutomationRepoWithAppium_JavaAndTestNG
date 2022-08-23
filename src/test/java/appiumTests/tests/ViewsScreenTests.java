@@ -3,8 +3,7 @@ package appiumTests.tests;
 import appiumTests.screenFlows.screenNativeFlows.ViewsScreenFlows;
 import org.testng.annotations.Test;
 
-public class ViewsScreenTests extends InitializeMobileSession{
-    //Make them run as a Suit
+public class ViewsScreenTests extends InitializeMobileSession {
     ViewsScreenFlows viewsScreenFlows;
 
     @Test
